@@ -1,4 +1,3 @@
-
 package com.quantity.app;
 
 import com.quantity.domain.length.Feet;
