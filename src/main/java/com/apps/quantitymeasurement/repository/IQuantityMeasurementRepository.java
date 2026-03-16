@@ -13,4 +13,6 @@ public interface IQuantityMeasurementRepository {
 
     List<QuantityMeasurementEntity> findAll();
 
+	void saveMeasurement(QuantityMeasurementEntity entity);
+
 }
