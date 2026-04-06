@@ -23,10 +23,6 @@ public class JwtFilter extends OncePerRequestFilter{
 	
 	private JwtService jwtService;
     private CustomUserDetailsService userDetailsService;
-    
-     /*
-      * Constructor injection
-      */
 
 	public JwtFilter(JwtService jwtService, CustomUserDetailsService userDetailsService) {
 		this.jwtService = jwtService;
