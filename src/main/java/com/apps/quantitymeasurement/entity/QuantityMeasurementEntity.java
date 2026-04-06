@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity // Marks this class as a JPA entity
+@Entity 
 @Table(name = "quantity_measurement_entity", indexes = {
 		@Index(name = "idx_operation", columnList = "operation"),
 		@Index(name ="idx_measurement_type", columnList = "this_measurement_type"),
@@ -40,7 +40,7 @@ public class QuantityMeasurementEntity{
 	@Column(name="that_measurement_type", nullable = false)
 	private String thatMeasurementType;
 
-	// e.g., "COMPARE", "CONVERT", "ADD", "SUBTRACT", "DIVIDE"
+	//"COMPARE", "CONVERT", "ADD", "SUBTRACT", "DIVIDE"
 	@Column(name="operation", nullable = false)
 	private String operation;
 	
@@ -83,7 +83,6 @@ public class QuantityMeasurementEntity{
 	
 	 /*
      * Comparison / Conversion
-     * Example: 1 ft == 12 in
      */
 	public QuantityMeasurementEntity(double thisValue, String thisUnit, String thisMeasurementType, double thatValue, String thatUnit, String thatMeasurementType, String operation, String resultString) {
 			initializeCommonFields(thisValue, thisUnit, thisMeasurementType, thatValue, thatUnit, thatMeasurementType, operation);
@@ -94,7 +93,6 @@ public class QuantityMeasurementEntity{
 
     /*
      * Arithmetic Operation
-     * Example: 1 ft + 12 in = 2 ft
      */
 	public QuantityMeasurementEntity(double thisValue, String thisUnit, String thisMeasurementType, double thatValue, String thatUnit, String thatMeasurementType, String operation, double resultValue, String resultUnit, String resultMeasurementType) {
 			initializeCommonFields(thisValue, thisUnit, thisMeasurementType, thatValue, thatUnit, thatMeasurementType, operation);
@@ -106,7 +104,6 @@ public class QuantityMeasurementEntity{
     
 	/*
 	 * Numeric Result Only(division result)
-	 * Example: 2 ft / 24 in = 0 ft
 	 */
 	public QuantityMeasurementEntity(double thisValue, String thisUnit, String thisMeasurementType, double thatValue, String thatUnit, String thatMeasurementType, String operation, double resultValue) {
 			initializeCommonFields(thisValue, thisUnit, thisMeasurementType, thatValue, thatUnit, thatMeasurementType, operation);
@@ -114,9 +111,7 @@ public class QuantityMeasurementEntity{
 			this.resultValue = resultValue;
 	}
 
-    /*
-     * Constructor for error cases
-     */
+    
 	public QuantityMeasurementEntity(double thisValue, String thisUnit, String thisMeasurementType, double thatValue, String thatUnit, String thatMeasurementType, String operation, String errorMessage, boolean isError) {
 			initializeCommonFields(thisValue, thisUnit, thisMeasurementType, thatValue, thatUnit, thatMeasurementType, operation);
 			
@@ -124,9 +119,7 @@ public class QuantityMeasurementEntity{
 			this.errorMessage = errorMessage;
 	}
 
-	/*
-	 * Full Constructor
-	 */
+	
 	public QuantityMeasurementEntity(double thisValue, String thisUnit, String thisMeasurementType,double thatValue, String thatUnit, String thatMeasurementType, String operation, double resultValue, String resultUnit, String resultMeasurementType, String resultString, boolean isError, String errorMessage) {
 			initializeCommonFields(thisValue, thisUnit, thisMeasurementType, thatValue, thatUnit, thatMeasurementType, operation);
 			
@@ -138,9 +131,7 @@ public class QuantityMeasurementEntity{
 			this.errorMessage = errorMessage;
 	}
 	
-    /*
-     * Common Field Initializer
-     */
+   
     private void initializeCommonFields(double thisValue, String thisUnit, String thisMeasurementType, double thatValue, String thatUnit, String thatMeasurementType, String operation) {
 		this.thisValue = thisValue;
 		this.thisUnit = thisUnit;
