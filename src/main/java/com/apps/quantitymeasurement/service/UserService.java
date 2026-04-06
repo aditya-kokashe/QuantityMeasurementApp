@@ -15,15 +15,13 @@ public class UserService {
 	private UserRepository userRepository;
 	private PasswordEncoder passwordEncoder;
 	private JwtService jwtService;
-	/*
-	 * Constructor Injection
-	 */
+	
+	
 	public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
 		this.userRepository = userRepository;
 		this.passwordEncoder = passwordEncoder;
 		this.jwtService = jwtService;
 	}
-	
 	
 	
 	//register
