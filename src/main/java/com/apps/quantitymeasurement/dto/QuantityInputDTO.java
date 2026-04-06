@@ -4,7 +4,7 @@ public class QuantityInputDTO {
 
     private QuantityDTO thisQuantityDTO;
     private QuantityDTO thatQuantityDTO;
-    private QuantityDTO targetQuantityDTO; // ✅ added
+    private QuantityDTO targetQuantityDTO; 
 
     public QuantityInputDTO() {
     }
@@ -38,7 +38,7 @@ public class QuantityInputDTO {
         this.thatQuantityDTO = thatQuantityDTO;
     }
 
-    public QuantityDTO getTargetQuantityDTO() {   // ✅ now exists
+    public QuantityDTO getTargetQuantityDTO() { 
         return targetQuantityDTO;
     }
 
