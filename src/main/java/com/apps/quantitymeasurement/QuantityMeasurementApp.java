@@ -13,8 +13,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 info = @Info(
 	title = "Quantity Measurement API",
 	version = "1.0.0",
-	description = "REST API for quantity measurements with support "+ 
-													"for multiple unit types"
+	description = "REST API for quantity measurements with support for multiple unit types"
 	)
 )
 
