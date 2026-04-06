@@ -27,34 +27,29 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class GoogleAuthService {
+	
 	@Autowired
 	private CustomUserDetailsService customUserDetailsService;
-	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
 	@Autowired
 	private UserRepository userRepository;
-	
 	@Value("${spring.security.oauth2.client.registration.google.client-id}") 
 	private String clientId;
-
 	@Value("${spring.security.oauth2.client.registration.google.client-secret}")
 	private String clientSecret;
-	
 	@Autowired
 	private RestTemplate restTemplate;
-
 	@Autowired
 	private JwtService jwtService;
 	
 	public AuthResponse handleGoogleAuth(String code) {
 		try {
-			// 1. Exchange auth code for tokens
+			// 1. Exchange AUTH code for tokens
 			String tokenEndpoint = "https://oauth2.googleapis.com/token";
 			
 			/*
-			 * This params have application Owner - google credentials [When user hit login with google then this params and header go to authorization server to get access token]
+			 * This PARAMS have application Owner - google credentials [When user hit login with google then this params and header go to authorization server to get access token]
 			 */
 			MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
 			params.add("code", code);
