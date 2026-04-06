@@ -28,7 +28,6 @@ public class QuantityDTO {
 
 		@Override
 		public String getUnitName() {
-			// TODO Auto-generated method stub
 			return this.name();
 		}
 
